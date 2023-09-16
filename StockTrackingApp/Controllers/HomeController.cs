@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StockTrackingApp.Context;
 using StockTrackingApp.Models;
 using System.Diagnostics;
 
@@ -7,10 +8,12 @@ namespace StockTrackingApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly StockDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, StockDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()

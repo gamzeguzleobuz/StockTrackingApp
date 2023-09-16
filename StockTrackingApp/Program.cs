@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using StockTrackingApp.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var cs = builder.Configuration.GetConnectionString("Baglanti");
+builder.Services.AddDbContext<StockDbContext>(o => o.UseSqlServer(cs));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

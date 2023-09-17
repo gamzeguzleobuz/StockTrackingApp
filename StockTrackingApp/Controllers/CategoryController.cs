@@ -8,10 +8,10 @@ namespace StockTrackingApp.Controllers
     {
         private readonly StockDbContext _db;
 
-        public CategoryController(StockDbContext db) 
+        public CategoryController(StockDbContext db)
         {
             _db = db;
-        }    
+        }
         public IActionResult Index()
         {
             return View(_db.Categories.ToList());

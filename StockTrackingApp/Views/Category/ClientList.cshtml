@@ -17,16 +17,24 @@
             <th>Client Id</th>
             <th>Client Name</th>
             <th>Client Surname</th>
+            <th>Operations</th>
         </tr>
     </thead>
     <tbody>
+        <a asp-action="NewClient" asp-controller="Category" class="btn btn-primary">Add Client</a>
+
         @foreach (var item in Model)
         {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name </td>
-                    <td>@item.Surname </td>
-                </tr>
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name </td>
+                <td>@item.Surname </td>
+                <td>
+                    <a asp-action="DeleteClient" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+                    <a asp-action="UpdateClient" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-success">Update</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

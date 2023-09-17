@@ -19,9 +19,12 @@
             <th>Brand</th>
             <th>Category</th>
             <th>Quantity</th>
+            <th>Operations</th>
         </tr>
     </thead>
     <tbody>
+        <a asp-action="NewProduct" asp-controller="Category" class="btn btn-primary">Add Product</a>
+
         @foreach (var item in Model)
         {
             <tr>
@@ -30,6 +33,11 @@
                 <td>@item.Brand </td>
                 <td>@item.CategoryID</td>
                 <td>@item.Quantity </td>
+                <td>
+                    <a asp-action="DeleteProduct" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+                    <a asp-action="UpdateProduct" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-success">Update</a>
+                </td>
             </tr>
         }
     </tbody>

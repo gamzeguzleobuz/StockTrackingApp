@@ -1,0 +1,36 @@
+﻿@using StockTrackingApp.Data
+@model List<Product>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<h1>Hello</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.ProductName </td>
+                <td>@item.Brand </td>
+                <td>@item.CategoryID</td>
+                <td>@item.Quantity </td>
+            </tr>
+        }
+    </tbody>
+</table>
